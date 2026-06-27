@@ -88,6 +88,7 @@ struct platform {
 	void (*scroll)(int direction);
 
 	void (*copy_selection)();
+	void (*send_key)(uint8_t code, int pressed);
 
 	/*
 	* Draw operations may (or may not) be queued until this function

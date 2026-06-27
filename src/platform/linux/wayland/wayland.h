@@ -123,6 +123,7 @@ void way_init_hint(const char *bg, const char *fg, int border_radius, const char
 void way_hint_draw(struct screen *scr, struct hint *hints, size_t n);
 void way_scroll(int direction);
 void way_copy_selection();
+void way_send_key(uint8_t code, int pressed);
 void way_commit();
 void way_init();
 void init_input();

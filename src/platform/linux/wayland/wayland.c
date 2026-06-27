@@ -177,6 +177,7 @@ void way_scroll(int direction)
 }
 
 void way_copy_selection() { UNIMPLEMENTED }
+void way_send_key(uint8_t code, int pressed) { /* UNIMPLEMENTED */ }
 struct input_event *way_input_wait(struct input_event *events, size_t sz) { UNIMPLEMENTED }
 
 void way_screen_list(struct screen *scr[MAX_SCREENS], size_t *n)
@@ -215,6 +216,7 @@ void wayland_init(struct platform *platform)
 
 	platform->commit = way_commit;
 	platform->copy_selection = way_copy_selection;
+	platform->send_key = way_send_key;
 	platform->hint_draw = way_hint_draw;
 	platform->init_hint = way_init_hint;
 	platform->input_grab_keyboard = way_input_grab_keyboard;

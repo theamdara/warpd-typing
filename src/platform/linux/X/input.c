@@ -366,7 +366,7 @@ struct input_event *x_input_wait(struct input_event *events, size_t sz)
 {
 	size_t i;
 	static struct input_event ev;
-	struct input_evnet *ret = NULL;
+	struct input_event *ret = NULL;
 
 	for (i = 0; i < sz; i++) {
 		struct input_event *ev = &events[i];
@@ -422,6 +422,19 @@ struct {
 	{"'", "apostrophe"},
 	{"$", "dollar"},
 	{"backspace", "BackSpace"},
+	{"tab", "Tab"},
+	{"f1", "F1"},
+	{"f2", "F2"},
+	{"f3", "F3"},
+	{"f4", "F4"},
+	{"f5", "F5"},
+	{"f6", "F6"},
+	{"f7", "F7"},
+	{"f8", "F8"},
+	{"f9", "F9"},
+	{"f10", "F10"},
+	{"f11", "F11"},
+	{"f12", "F12"},
 };
 
 uint8_t x_input_lookup_code(const char *name, int *shifted)

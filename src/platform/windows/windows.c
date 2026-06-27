@@ -280,6 +280,14 @@ static const char *input_lookup_name(uint8_t code, int shifted)
 				case '\x20': strcpy(name, "space"); break;
 			}
 
+			if (code == VK_TAB) {
+				strcpy(name, "tab");
+				strcpy(shifted_name, "tab");
+			} else if (code >= VK_F1 && code <= VK_F12) {
+				sprintf(name, "f%d", code - VK_F1 + 1);
+				strcpy(shifted_name, name);
+			}
+
 			keymap[code] = name;
 			shifted_keymap[code] = shifted_name;
 		}
@@ -468,6 +476,7 @@ void platform_run(int (*main)(struct platform *platform))
 	platform.input_ungrab_keyboard = input_ungrab_keyboard;
 	platform.commit = commit;
 	platform.copy_selection = copy_selection;
+	platform.send_key = send_key;
 	platform.input_grab_keyboard = input_grab_keyboard;
 	platform.input_lookup_code = input_lookup_code;
 	platform.input_lookup_name = input_lookup_name;

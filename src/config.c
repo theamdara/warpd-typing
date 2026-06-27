@@ -28,6 +28,7 @@ static struct {
 
 	{ "exit", "esc", "Exit the currently active warpd session.", OPT_KEY },
 	{ "drag", "v", "Toggle drag mode (mnemonic (v)isual mode).", OPT_KEY },
+	{ "typing_mode", "tab", "Toggle typing mode.", OPT_KEY },
 	{ "copy_and_exit", "c", "Send the copy key and exit (useful in combination with v).", OPT_KEY },
 	{ "accelerator", "a", "Increase the acceleration of the pointer while held.", OPT_KEY },
 	{ "decelerator", "d", "Decrease the speed of the pointer while held.", OPT_KEY },

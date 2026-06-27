@@ -57,6 +57,7 @@ struct input_event *normal_mode(struct input_event *start_ev, int oneshot)
 	int sh, sw;
 	int mx, my;
 	int dragging = 0;
+	int typing_mode = 0;
 	int show_cursor = !system_cursor;
 
 	int n = sscanf(blink_interval, "%d %d", &on_time, &off_time);
@@ -90,6 +91,7 @@ struct input_event *normal_mode(struct input_event *start_ev, int oneshot)
 		"scroll_up",
 		"start",
 		"top",
+		"typing_mode",
 		"up",
 	};
 
@@ -131,6 +133,19 @@ struct input_event *normal_mode(struct input_event *start_ev, int oneshot)
 		}
 
 		scroll_tick();
+
+		if (ev && config_input_match(ev, "typing_mode")) {
+			if (ev->pressed) {
+				typing_mode = !typing_mode;
+			}
+			continue;
+		}
+
+		if (typing_mode && ev) {
+			platform->send_key(ev->code, ev->pressed);
+			continue;
+		}
+
 		if (mouse_process_key(ev, "up", "down", "left", "right")) {
 			redraw(scr, mx, my, !show_cursor);
 			continue;

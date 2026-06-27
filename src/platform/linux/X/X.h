@@ -102,6 +102,7 @@ void x_init_hint(const char *bg, const char *fg, int border_radius, const char *
 void x_hint_draw(struct screen *scr, struct hint *hints, size_t n);
 void x_scroll(int direction);
 void x_copy_selection();
+void x_send_key(uint8_t code, int pressed);
 void x_commit();
 void x_monitor_file(const char *path);
 long x_get_mtime(const char *path);

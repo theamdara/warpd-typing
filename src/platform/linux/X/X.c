@@ -110,6 +110,13 @@ void x_copy_selection()
 	system("xclip -o|xclip -selection CLIPBOARD");
 }
 
+void x_send_key(uint8_t code, int pressed)
+{
+	XTestFakeKeyEvent(dpy, code, pressed, CurrentTime);
+	XSync(dpy, False);
+}
+
+
 void x_scroll(int direction)
 {
 	int btn = 0;
@@ -231,4 +238,5 @@ void x_init(struct platform *platform)
 	platform->screen_get_dimensions = x_screen_get_dimensions;
 	platform->screen_list = x_screen_list;
 	platform->scroll = x_scroll;
+	platform->send_key = x_send_key;
 }
