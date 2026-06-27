@@ -1,3 +1,6 @@
+# What's new?
+I added typing mode, so that we can keep the warpd run and still can typing text. In normal mode, you press TAB to activate/deactivate typing 
+
 # What
 
 A modal keyboard driven interface for mouse manipulation.
